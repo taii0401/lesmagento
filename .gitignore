@@ -1,0 +1,36 @@
+# Secrets
+.env
+.env.*
+!.env.example
+**/auth.json
+**/*.pem
+**/*.key
+
+# Magento sensitive configuration
+/src/app/etc/env.php
+
+# Dependencies
+/src/vendor/
+
+# Generated files / cache
+/src/generated/*
+!/src/generated/.htaccess
+
+/src/var/*
+!/src/var/.htaccess
+
+/src/pub/static/*
+!/src/pub/static/.htaccess
+
+# Uploaded media and runtime data
+/src/pub/media/*
+!/src/pub/media/.htaccess
+
+# Local settings
+.vscode/
+.idea/
+*.log
+
+# Database backups
+*.sql
+*.sql.gz
