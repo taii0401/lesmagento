@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      layout="1column">
+    <body>
+        <referenceContainer name="content">
+            <block class="Les\ShippingNote\Block\Delivery\Summary"
+                   name="les.delivery.summary"
+                   template="Les_ShippingNote::delivery/info.phtml">
+
+                <block class="Magento\Cms\Block\BlockByIdentifier"
+                       name="les.delivery.notice"
+                       as="delivery_notice">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">les_delivery_notice</argument>
+                    </arguments>
+                </block>
+
+            </block>
+        </referenceContainer>
+    </body>
+</page>

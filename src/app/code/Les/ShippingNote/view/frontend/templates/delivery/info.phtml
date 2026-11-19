@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Les\ShippingNote\Block\Delivery\Summary $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<section class="les-delivery">
+    <h2><?= $escaper->escapeHtml($block->getOriginLabel()) ?></h2>
+
+    <p>
+        <?= $escaper->escapeHtml($block->getIntroduction()) ?>
+    </p>
+
+    <div class="les-delivery-notice">
+        <?= /* @noEscape */ $block->getChildHtml('delivery_notice') ?>
+    </div>
+
+    <p>
+        <a href="<?= $escaper->escapeUrl($block->getUrl('contact')) ?>">
+            <?= $escaper->escapeHtml(__('Contact us about delivery')) ?>
+        </a>
+    </p>
+</section>
