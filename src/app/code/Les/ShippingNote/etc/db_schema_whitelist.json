@@ -1,0 +1,16 @@
+{
+    "les_shipping_note": {
+        "column": {
+            "id": true,
+            "code": true,
+            "title": true,
+            "content": true,
+            "is_active": true,
+            "sort_order": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "LES_SHIPPING_NOTE_CODE": true
+        }
+    }
+}
