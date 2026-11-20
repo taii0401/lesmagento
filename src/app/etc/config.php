@@ -359,6 +359,7 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
+        'Les_CorePreferenceLab' => 1,
         'Les_ShippingNote' => 1,
         'Mageplaza_Core' => 0,
         'PayPal_Braintree' => 1,
