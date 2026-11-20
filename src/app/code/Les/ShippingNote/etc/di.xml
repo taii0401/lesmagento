@@ -32,6 +32,16 @@
         </arguments>
     </virtualType>
 
+    <!-- Proxy -->
+    <virtualType
+        name="Les\ShippingNote\Virtual\LazyGlobalDeliveryMessage"
+        type="Les\ShippingNote\Model\InternationalDeliveryMessage\Proxy">
+        <arguments>
+            <argument name="instanceName"
+                    xsi:type="string">Les\ShippingNote\Virtual\GlobalDeliveryMessage</argument>
+        </arguments>
+    </virtualType>
+
     <type name="Les\ShippingNote\Block\Delivery\Summary">
         <arguments>
             <!-- 指定 Summary 使用另一個 Service -->
@@ -40,7 +50,11 @@
             <!--<argument name="deliveryMessage" xsi:type="object">Les\ShippingNote\Model\InternationalDeliveryMessage</argument>-->
 
             <!-- 指定 Summary 使用 Virtual Type A -->
-            <argument name="deliveryMessage" xsi:type="object">Les\ShippingNote\Virtual\GlobalDeliveryMessage</argument>
+            <!--<argument name="deliveryMessage" xsi:type="object">Les\ShippingNote\Virtual\GlobalDeliveryMessage</argument>-->
+
+            <!-- 指定 Summary 使用 Proxy -->
+            <argument name="deliveryMessage"
+                    xsi:type="object">Les\ShippingNote\Virtual\LazyGlobalDeliveryMessage</argument>
         </arguments>
     </type>
 
