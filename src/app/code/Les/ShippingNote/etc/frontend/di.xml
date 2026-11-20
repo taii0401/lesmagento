@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Les\ShippingNote\Block\Delivery\Summary">
+        <plugin
+            name="les_shipping_note_append_policy_reminder"
+            type="Les\ShippingNote\Plugin\Delivery\AppendPolicyReminder"
+            sortOrder="10"/>
+    </type>
+
+</config>
