@@ -6,4 +6,21 @@
         for="Les\ShippingNote\Api\DeliveryMessageInterface"
         type="Les\ShippingNote\Model\DeliveryMessage"/>
 
+    <!-- 指定 Summary 使用另一個 Service -->
+    <type name="Les\ShippingNote\Block\Delivery\Summary">
+        <arguments>
+            <!-- 替換物件 -->
+            <!-- 當 Magento 建立 Summary 時，將它的 deliveryMessage 參數指定為 InternationalDeliveryMessage 服務 -->
+            <argument name="deliveryMessage" xsi:type="object">Les\ShippingNote\Model\InternationalDeliveryMessage</argument>
+        </arguments>
+    </type>
+
+    <!-- 設定新 Service 的建構子文字 -->
+    <type name="Les\ShippingNote\Model\InternationalDeliveryMessage">
+        <arguments>
+            <!-- 替換字串 -->
+            <argument name="introduction" xsi:type="string">International orders ship from Taiwan. Delivery charges are calculated at checkout.</argument>
+        </arguments>
+    </type>
+
 </config>
