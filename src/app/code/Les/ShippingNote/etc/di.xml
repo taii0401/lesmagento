@@ -5,6 +5,10 @@
     <preference
         for="Les\ShippingNote\Api\DeliveryMessageInterface"
         type="Les\ShippingNote\Model\DeliveryMessage"/>
+    
+    <preference
+        for="Les\ShippingNote\Api\GetNoteSummaryInterface"
+        type="Les\ShippingNote\Model\GetNoteSummary"/>
 
     <!-- 設定新 Service 的建構子文字 -->
     <type name="Les\ShippingNote\Model\InternationalDeliveryMessage">
