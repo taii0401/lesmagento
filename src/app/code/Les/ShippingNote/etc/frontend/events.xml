@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--
+        event name => 對應 dispatch() 使用的事件名稱
+        observer name => Observer 的設定識別名稱
+        instance => 實際執行的 PHP Class
+    -->
+
+    <!-- Magento 核心會員註冊事件 -->
+    <event name="customer_register_success">
+        <observer
+            name="les_shipping_note_log_registration"
+            instance="Les\ShippingNote\Observer\LogCustomerRegistration"/>
+    </event>
+
+    <!-- LES 自訂測試事件 -->
+    <event name="les_shipping_note_demo_after">
+        <observer
+            name="les_shipping_note_log_demo"
+            instance="Les\ShippingNote\Observer\LogDemoEvent"/>
+    </event>
+
+</config>
