@@ -4,10 +4,12 @@
       layout="1column">
     <body>
         <referenceContainer name="content">
+            <!-- 保留原本的 Summary Block -->
             <block class="Les\ShippingNote\Block\Delivery\Summary"
                    name="les.delivery.summary"
                    template="Les_ShippingNote::delivery/info.phtml">
 
+                <!-- 原本的 CMS 公告繼續保留 -->
                 <block class="Magento\Cms\Block\BlockByIdentifier"
                        name="les.delivery.notice"
                        as="delivery_notice">
@@ -15,8 +17,15 @@
                         <argument name="identifier" xsi:type="string">les_delivery_notice</argument>
                     </arguments>
                 </block>
-
             </block>
+
+             <!-- ORM 公告列表 -->
+            <block
+                class="Les\ShippingNote\Block\Delivery\Notes"
+                name="les.delivery.notes"
+                template="Les_ShippingNote::delivery/notes.phtml"
+                after="les.delivery.summary"/>
+                
         </referenceContainer>
     </body>
 </page>

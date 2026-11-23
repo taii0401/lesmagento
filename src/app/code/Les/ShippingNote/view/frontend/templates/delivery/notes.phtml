@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var \Les\ShippingNote\Block\Delivery\Notes $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$notes = $block->getNotes();
+?>
+
+<div class="les-shipping-notes">
+    <h2><?= $escaper->escapeHtml(__('配送公告列表')) ?></h2>
+
+    <?php if (empty($notes)): ?>
+        <p><?= $escaper->escapeHtml(__('目前沒有配送公告。')) ?></p>
+    <?php else: ?>
+        <?php foreach ($notes as $note): ?>
+            <article class="shipping-note">
+                <h3>
+                    <?= $escaper->escapeHtml($note['title'] ?? '') ?>
+                </h3>
+
+                <p>
+                    <?= nl2br(
+                        $escaper->escapeHtml($note['content'] ?? '')
+                    ) ?>
+                </p>
+            </article>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
