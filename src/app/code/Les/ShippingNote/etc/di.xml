@@ -70,4 +70,45 @@
         </arguments>
     </type>
 
+    <!-- 配置 A：ORM 公告預覽 -->
+    <virtualType
+        name="Les\ShippingNote\Virtual\OrmNotePreview"
+        type="Les\ShippingNote\Model\Preview\NotePreview">
+        <arguments>
+            <argument name="source" xsi:type="object">Les\ShippingNote\Model\Preview\OrmNoteSource</argument>
+            <argument name="heading" xsi:type="string">ORM notes: operational preview</argument>
+            <argument name="limit" xsi:type="number">3</argument>
+            <argument name="showCodes" xsi:type="boolean">true</argument>
+            <argument name="options" xsi:type="array">
+                <item name="empty_message" xsi:type="string">No active ORM notes were found.</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- 配置 B：靜態公告預覽 -->
+    <virtualType
+        name="Les\ShippingNote\Virtual\SampleNotePreview"
+        type="Les\ShippingNote\Model\Preview\NotePreview">
+        <arguments>
+            <argument name="source" xsi:type="object">Les\ShippingNote\Model\Preview\StaticNoteSource</argument>
+            <argument name="heading" xsi:type="string">Static notes: presentation preview</argument>
+            <argument name="limit" xsi:type="number">1</argument>
+            <argument name="showCodes" xsi:type="boolean">false</argument>
+            <argument name="options" xsi:type="array">
+                <item name="empty_message" xsi:type="string">No static sample was returned.</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Les\ShippingNote\Model\Preview\PreviewComparison">
+        <arguments>
+            <!-- $ormPreview：使用 ORM Virtual Type -->
+            <argument name="ormPreview"
+                    xsi:type="object">Les\ShippingNote\Virtual\OrmNotePreview</argument>
+            <!-- $samplePreview：使用靜態 Virtual Type -->
+            <argument name="samplePreview"
+                    xsi:type="object">Les\ShippingNote\Virtual\SampleNotePreview</argument>
+        </arguments>
+    </type>
+
 </config>
