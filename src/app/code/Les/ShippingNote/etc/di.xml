@@ -58,6 +58,7 @@
         </arguments>
     </type>
 
+    <!-- Argument Replacement -->
     <type name="Les\ShippingNote\Model\Preview\NotePreview">
         <arguments>
             <argument name="source" xsi:type="object">Les\ShippingNote\Model\Preview\OrmNoteSource</argument>
@@ -70,7 +71,7 @@
         </arguments>
     </type>
 
-    <!-- 配置 A：ORM 公告預覽 -->
+    <!-- Virtual Type 配置 A：ORM 公告預覽 -->
     <virtualType
         name="Les\ShippingNote\Virtual\OrmNotePreview"
         type="Les\ShippingNote\Model\Preview\NotePreview">
@@ -85,7 +86,7 @@
         </arguments>
     </virtualType>
 
-    <!-- 配置 B：靜態公告預覽 -->
+    <!-- Virtual Type 配置 B：靜態公告預覽 -->
     <virtualType
         name="Les\ShippingNote\Virtual\SampleNotePreview"
         type="Les\ShippingNote\Model\Preview\NotePreview">
@@ -106,6 +107,30 @@
             <argument name="ormPreview"
                     xsi:type="object">Les\ShippingNote\Virtual\OrmNotePreview</argument>
             <!-- $samplePreview：使用靜態 Virtual Type -->
+            <argument name="samplePreview"
+                    xsi:type="object">Les\ShippingNote\Virtual\SampleNotePreview</argument>
+        </arguments>
+    </type>
+
+    <!-- Proxy -->
+    <!-- 
+        表示 Proxy 第一次需要真正服務時，要使用 ORM 版本的 DI 配置，而不是預設 NotePreview 配置
+        注意：不要寫成 Les\ShippingNote\Virtual\OrmNotePreview\Proxy
+    -->
+    <virtualType
+        name="Les\ShippingNote\Virtual\LazyOrmNotePreview"
+        type="Les\ShippingNote\Model\Preview\NotePreview\Proxy">
+        <arguments>
+            <argument name="instanceName"
+                    xsi:type="string">Les\ShippingNote\Virtual\OrmNotePreview</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Les\ShippingNote\Model\Preview\LazyPreviewComparison">
+        <arguments>
+            <argument name="ormPreview"
+                    xsi:type="object">Les\ShippingNote\Virtual\LazyOrmNotePreview</argument>
+
             <argument name="samplePreview"
                     xsi:type="object">Les\ShippingNote\Virtual\SampleNotePreview</argument>
         </arguments>
