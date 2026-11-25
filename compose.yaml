@@ -3,7 +3,7 @@ name: les-magento
 
 services:
   nginx:
-    image: nginx:1.24.0
+    image: nginx:1.30.8
     ports:
       - "127.0.0.1:${NGINX_PORT:-18080}:80"
     volumes:
@@ -14,7 +14,7 @@ services:
       - php
   
   nginx-hk:
-    image: nginx:1.24.0
+    image: nginx:1.30.8
     ports:
       - "127.0.0.1:${NGINX_HK_PORT:-18080}:80"
     volumes:
@@ -25,7 +25,7 @@ services:
       - php
 
   php:
-    image: taii0401/magento-php:8.3.6
+    image: taii0401/magento-php:8.3.37
     volumes:
       - ./src:/var/www/html
       - magento_vendor:/var/www/html/vendor
